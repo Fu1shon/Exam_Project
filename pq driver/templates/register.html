@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Банкетам.Нет</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --color1: #05b1b1;
+            --color2: #52339a;
+        }
+
+        header, footer {
+            background: linear-gradient(var(--color1), var(--color2));
+        }
+
+        footer {
+            padding: 50px 0;
+        }
+
+        .navbar {
+            background-color: #2c2c2c;
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .btn-login {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            margin-right: 10px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-login:hover {
+            background-color: black;
+            color: aliceblue;
+        }
+
+        .btn-register {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-register:hover {
+            background-color: black;
+            color: aliceblue;
+        }
+
+        .btn-submit {
+            background: linear-gradient(var(--color1), var(--color2));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: black;
+            color: aliceblue;
+            transform: scale(1.02);
+        }
+
+        .register-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-control-custom {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-control-custom:focus {
+            outline: none;
+            border-color: var(--color1);
+            box-shadow: 0 0 5px rgba(5,177,177,0.3);
+        }
+
+        .btn-back {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+
+<!-- НАВИГАЦИЯ -->
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">🎉 Банкетам.Нет</a>
+        <div>
+            <a href="/" class="btn-back">На главную</a>
+            <a href="/login" class="btn-login">Вход</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ФОРМА РЕГИСТРАЦИИ -->
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="register-card">
+        <h2 class="text-center mb-4">📝 Регистрация</h2>
+
+        {{if .Error}}
+        <div class="alert alert-danger text-center">{{.Error}}</div>
+        {{end}}
+
+        <form method="POST">
+            <input type="text" name="login" class="form-control-custom" placeholder="Логин (латиница+цифры, ≥6)" required>
+            <input type="password" name="password" class="form-control-custom" placeholder="Пароль (≥8)" required>
+            <input type="text" name="fio" class="form-control-custom" placeholder="ФИО" required>
+            <input type="tel" name="phone" class="form-control-custom" placeholder="Телефон" required>
+            <input type="email" name="email" class="form-control-custom" placeholder="Email" required>
+            <button type="submit" class="btn-submit">Зарегистрироваться</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/login" style="color: var(--color2); text-decoration: none;">Уже есть аккаунт? Войти</a>
+        </div>
+    </div>
+</div>
+
+<!-- ФУТЕР -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="text-center text-white">
+                <p class="mb-0">© 2026 Банкетам.Нет. Все права защищены.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

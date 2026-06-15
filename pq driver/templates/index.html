@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Банкетам.Нет</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --color1: #05b1b1;
+            --color2: #52339a;
+        }
+
+        header, footer {
+            background: linear-gradient(var(--color1), var(--color2));
+        }
+
+        footer {
+            padding: 50px 0;
+        }
+
+        .navbar {
+            background-color: #2c2c2c;
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .btn-login {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            margin-right: 10px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-login:hover {
+            background-color: black;
+            color: aliceblue;
+        }
+
+        .btn-register {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-register:hover {
+            background-color: black;
+            color: aliceblue;
+        }
+
+        .btn-order {
+            display: block;
+            margin: 20px auto 20px;
+            padding: 12px 40px;
+            max-width: 300px;
+            background-color: white;
+            color: var(--color2);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .btn-order:hover {
+            background-color: black;
+            color: aliceblue;
+        }
+
+        .card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* СЛАЙДЕР */
+        .slider-container {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            overflow: hidden;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: var(--color2);
+            width: 25px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- НАВИГАЦИЯ -->
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">🎉 Банкетам.Нет</a>
+        <div>
+            <a href="/login" class="btn btn-login">Вход</a>
+            <a href="/register" class="btn btn-register">Регистрация</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ЗАГОЛОВОК -->
+<header style="padding: 50px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="text-white">Банкетам.Нет</h1>
+                <h1 class="text-white">Забронируйте помещение для банкета</h1>
+                <a href="/register" class="btn-order">Начать бронирование</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container mt-4">
+    <div class="slider-container">
+        <div class="slides" id="slides">
+            <div class="slide">
+                <img src="" alt="Банкетный зал">
+            </div>
+            <div class="slide">
+                <img src="" alt="Ресторан">
+            </div>
+            <div class="slide">
+                <img src="" alt="Летняя веранда">
+            </div>
+            <div class="slide">
+                <img src="" alt="Закрытая веранда">
+            </div>
+        </div>
+        <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+    </div>
+    <div class="dots" id="dots"></div>
+</div>
+
+<!-- КАРТОЧКИ -->
+<section class="container my-5">
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <h2>🏰</h2>
+                <h5>Банкетные залы</h5>
+                <p class="text-muted">До 200 гостей</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <h2>🍽️</h2>
+                <h5>Рестораны</h5>
+                <p class="text-muted">Изысканная кухня</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <h2>🌿</h2>
+                <h5>Летние веранды</h5>
+                <p class="text-muted">Свежий воздух</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <h2>🏠</h2>
+                <h5>Закрытые веранды</h5>
+                <p class="text-muted">Уют и комфорт</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="text-center text-white">
+                <p class="mb-0">© 2026 Банкетам.Нет. Все права защищены.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- СКРИПТ СЛАЙДЕРА -->
+<script>
+    let slideIndex = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+    let autoSlideInterval;
+
+    function showSlide(n) {
+        if (n >= totalSlides) slideIndex = 0;
+        if (n < 0) slideIndex = totalSlides - 1;
+        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+        // Обновляем активную точку
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === slideIndex);
+        });
+    }
+
+    function changeSlide(n) {
+        slideIndex += n;
+        showSlide(slideIndex);
+        resetAutoSlide();
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(() => {
+            slideIndex++;
+            showSlide(slideIndex);
+            if (slideIndex >= totalSlides) slideIndex = 0;
+        }, 3000);
+    }
+
+    // Создаём точки (dots)
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.onclick = () => {
+            slideIndex = i;
+            showSlide(slideIndex);
+            resetAutoSlide();
+        };
+        document.getElementById('dots').appendChild(dot);
+    }
+
+    // Показываем первый слайд и запускаем автосмену
+    showSlide(0);
+    autoSlideInterval = setInterval(() => {
+        slideIndex++;
+        showSlide(slideIndex);
+        if (slideIndex >= totalSlides) slideIndex = 0;
+    }, 3000);
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+:root{
+    --color1: #05b1b1;
+    --color2: #52339a;
+}
+
+header, footer, section{
+    padding: 100px 0;
+}
+
+header{
+    padding: 200px 0;
+}
+
+footer{
+    max-height: 50px;
+}
+
+header, footer{
+    background: linear-gradient(var(--color1), var(--color2));
+}
+
+.btn-order{
+    display: block;
+    margin: 20px auto 20px;
+    padding: 8px 30px;
+    max-width: 400px;
+    max-height: 100px;
+    background-color: aliceblue;
+}
+
+.btn-order:hover{
+    background-color: black;
+    color: aliceblue;
+}
+
+.btn-login:hover{
+    background-color: black;
+    color: aliceblue;
+}
+
+.btn-register:hover{
+    background-color: black;
+    color: aliceblue;
+}
+
+.button-accept{
+    background: linear-gradient(var(--color1), var(--color2));
+}
