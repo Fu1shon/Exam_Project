@@ -1,0 +1,11 @@
+css@font-face {
+    font-family: 'MyCustomFont'; /* Название, которое вы будете использовать в CSS */
+    src: url('fonts/MyCustomFont.woff2') format('woff2'),
+         url('fonts/MyCustomFont.woff') format('woff'); /* Путь к файлу шрифта */
+    font-weight: 400; /* Начертание */
+    font-style: normal; /* Стиль */
+    font-display: swap; /* Показывает системный шрифт, пока грузится кастомный */
+}
+Используйте код с осторожностью.3. Примените шрифт к элементамИспользуйте созданное имя в свойстве font-family:cssbody {
+    font-family: 'MyCustomFont', sans-serif; /* Название и резервный шрифт */
+}
